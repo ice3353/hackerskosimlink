@@ -25,6 +25,7 @@ function startSim()
  return true;
 
 }
+function randomSim() { var select = document.getElementById('user'); var items = select.getElementsByTagName('option'); var index = Math.floor(Math.random() * items.length); select.selectedIndex = index; }
 </script>
 </head>
 <body>
@@ -255,9 +256,10 @@ xillica
 
 
 </select>
+<input value="랜덤으로 선택" type="button" onclick="randomSim();" class="file-upload-btn">
     <div class="drag-text">
 </p>
-<input value="해킹 시작!" type="button" onclick="startSim();" class=exec-btn>
+<input value="해킹 시작!" type="button" onclick="startSim();" class="exec-btn">
 </div>
 </div>
 <p>
