@@ -3,29 +3,43 @@
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <meta property="og:url" content="https://hackerskorea.kro.kr"> <meta property="og:title" content="HACKERS KOREA 시뮬레이션"> <meta property="og:type" content="website"> <meta property="og:image" content="https://i.ytimg.com/vi/462raTfPnlo/maxresdefault.jpg"> <meta property="og:description" content="해커스 코리아의 유저들의 시뮬레이션">
-<title>Hackers 시뮬레이션 링크(각시탈이 모딩함)</title>
+<title>Hackers 시뮬레이션 링크</title>
 <script>
-
-function startSim()
-{
-
- var t = document.getElementById("user");
- var tI = t.options.selectedIndex;
- 
- var link = t.options[tI].value;
- 
- if (link == 'null')
- {
-  alert('유저를 선택해 주세요.');
-  return false;
- }
- 
- window.location.href = 'hackers://simlink?' + link;
- 
- return true;
-
+function startSim() {
+	var t = document.getElementById("user");
+	var tI = t.options.selectedIndex;
+	var link = t.options[tI].value;
+	if (link == 'null') {
+		alert('유저를 선택해 주세요.');
+		return false;
+	}
+	window.location.href = 'hackers://simlink?' + link;
+	return true;
 }
-function randomSim() { var select = document.getElementById('user'); var items = select.getElementsByTagName('option'); var index = Math.floor(Math.random() * items.length); select.selectedIndex = index; }
+function randomSim() {
+	var select = document.getElementById('user');
+	var items = select.getElementsByTagName('option');
+	var index = Math.floor(Math.random() * items.length);
+	select.selectedIndex = index;
+}
+function copySim() {
+	var t = document.getElementById("user");
+	var tI = t.options.selectedIndex;
+	var link = t.options[tI].value;
+	if (link == 'null')
+	{
+		alert('유저를 선택해 주세요.');
+		return false;
+	}
+	var copytext = document.createElement('textarea');
+	document.body.appendChild(copytext);
+	copytext.value = 'http://link.hackersthegame.com/simlink.php?' + t.options[tI].value;
+	copytext.select();
+	document.execCommand('copy');
+	document.body.removeChild(copytext);
+	alert('복사 완료')
+	return true;
+}
 </script>
 </head>
 <body>
@@ -36,9 +50,8 @@ function randomSim() { var select = document.getElementById('user'); var items =
 </p>
   </section>
 <div class="container file-upload">
-
 <p>
-<select id="user" class="file-upload-btn">
+<select id="user" class="file-upload-btn" style="width:75%;">
 
 <option value='null' selected='selected'>
 타겟 선택
@@ -330,9 +343,9 @@ xillica
 </optgroup>
 
 
-</select>
-<input value="랜덤으로 선택" type="button" onclick="randomSim();" class="file-upload-btn">
-<input value="바로랜덤" type="button" onclick="randomSim();startSim();" class="file-upload-btn">
+</select><input value="링크 복사" type="button" class="file-upload-btn" onclick="copySim();" style="width:25%; height:auto;">
+<input value="랜덤으로 선택" type="button" onclick="randomSim();" class="file-upload-btn" style="width:100%;">
+<input value="바로랜덤" type="button" onclick="randomSim();startSim();" class="file-upload-btn" style="width:100%;">
     <div class="drag-text">
 
 </p>
@@ -351,15 +364,6 @@ xillica
     슈퍼마리오<br><br>
     디자인<br>
     HACKERS(앱 개발자)<br><br>
-    비장한사람
-    <details>
-        <summary>
-            애옹하세요_루미(이름안정함)[디코장]
-        </summary>
-        <p>
-            잔짜이름은 비장하세요_비장(비장안정함)[비장] 입니.. 읍읍
-        </p>
-    </details>
     </p>
     </details>
 </p>
@@ -396,7 +400,6 @@ summary{
   margin-top: 12rem
 		}
 .file-upload-btn {
-			width: 100%;
     margin: 0;
     color: #fff;
     background: #1fb264;
